@@ -2,13 +2,13 @@ import { useEffect } from 'react';
 import { useAppDispatch, useAppSelector } from '../../hooks/redux';
 import Button from '../Button/Button';
 import './Widget.scss';
-import { loadJoke } from '../../store/reducers/jokeReducers';
+import { loadAndTranslateJoke } from '../../store/reducers/jokeReducers';
 
 function Widget() {
   const dispatch = useAppDispatch();
 
   useEffect(() => {
-    dispatch(loadJoke());
+    dispatch(loadAndTranslateJoke());
   }, [dispatch]); // voir avec le prof
   const { joke, loading, error } = useAppSelector((state) => state.joke);
 

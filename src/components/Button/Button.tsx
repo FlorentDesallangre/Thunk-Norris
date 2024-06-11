@@ -1,11 +1,11 @@
 import { useAppDispatch } from '../../hooks/redux';
-import { loadJoke } from '../../store/reducers/jokeReducers';
+import { loadAndTranslateJoke } from '../../store/reducers/jokeReducers';
 import './Button.scss';
 
 function Button() {
   const dispatch = useAppDispatch();
   function handleclick() {
-    dispatch(loadJoke());
+    dispatch(loadAndTranslateJoke());
   }
   return (
     <button type="button" className="button" onClick={handleclick}>

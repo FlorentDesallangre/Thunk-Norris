@@ -6,6 +6,7 @@ export default interface IJoke {
   updated_at: string;
   url: string;
   value: string;
+  translated: string;
 }
 
 export interface IJokeState {
