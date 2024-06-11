@@ -10,17 +10,14 @@ function Widget() {
   useEffect(() => {
     dispatch(loadJoke());
   }, [dispatch]); // voir avec le prof
-  const joke = useAppSelector((state) => state.joke.joke.value);
-  // mettre en place le store redux
-  // dans un useEffect dispatcher une action asynchrone qui va fetch une blague
-  // et qui automatiquement dispatcher une action.fullfilled
-  // intercepter cette action fullfilled dan sle reducer pour ajouter la blague au state du store
+  const { joke, loading, error } = useAppSelector((state) => state.joke);
+
   return (
     <article className="widget">
-      <p className="widget-content">{joke}</p>
+      <p className="widget-content">{loading ? '...' : joke.value}</p>
+      <p className="widget-error">{error}</p>
       <Button />
     </article>
   );
 }
-
 export default Widget;

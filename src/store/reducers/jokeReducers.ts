@@ -25,24 +25,21 @@ export const loadJoke = createAppAsyncThunk('WIDGET/LOAD_JOKE', async () => {
   );
 
   console.log(data);
-  // tout ce qui est retourné par l'asyncThunk sera récupéré au niveau du reducer dans le payload de l'action
-  return data; // dispatch({type : "login.fulfilled", payload : data})
+  return data;
 });
 
 const jokeReducer = createReducer(initialState, (builder) => {
   builder
-    .addCase(loadJoke.pending, (state) => {
-      // ici on va gérer les valeurs du state lorsque notre promise est pending
-      state.loading = true;
+    .addCase(loadJoke.pending, (store) => {
+      store.loading = true;
     })
-    .addCase(loadJoke.fulfilled, (state, action) => {
-      // ici on va gérer les valeurs du state lorsque notre promise est fulfilled
-      // on récupère ce qui a été return par le thunk dans "action.payload"
-      state.joke = action.payload;
+    .addCase(loadJoke.fulfilled, (store, action) => {
+      store.joke = action.payload;
+      store.loading = false;
     })
-    .addCase(loadJoke.rejected, (state, action) => {
-      state.error = action.error.message as string;
-      state.loading = false;
+    .addCase(loadJoke.rejected, (store, action) => {
+      store.error = action.error.message as string;
+      store.loading = false;
     });
 });
 
