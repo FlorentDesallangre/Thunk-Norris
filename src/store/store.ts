@@ -1,4 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
+// eslint-disable-next-line import/no-cycle
 import jokeReducer from './reducers/jokeReducers';
 
 // 2b - on déclare nos différents states avec leurs reducers

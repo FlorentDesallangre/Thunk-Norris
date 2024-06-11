@@ -16,7 +16,7 @@ const initialState: IJokeState = {
     id: '1',
     updated_at: '11/06/2024',
     url: '',
-    value: 'ma super blague ',
+    value: '',
   },
 };
 export const loadJoke = createAppAsyncThunk('WIDGET/LOAD_JOKE', async () => {
