@@ -1,4 +1,4 @@
-# Exo Thunk Norris
+# Thunk Norris
 
 Ce projet vise à dynamiser un ensemble de composants statiques en implémentant un state Redux et en intégrant une API pour récupérer des blagues Chuck Norris. Il comprend plusieurs fonctionnalités pour gérer l'affichage des blagues et un loader pendant la récupération des données.
 
@@ -15,6 +15,10 @@ Dès le chargement initial de la page, une blague est automatiquement affichée 
 ### 3. Affichage d'un loader
 
 Pendant que la blague est en cours de récupération depuis l'API, un loader est affiché pour informer l'utilisateur que le contenu est en train de se charger.
+
+### 4. Traduction de la blague obtenue
+
+Une fois la blaque retourner par l'api elle est traduite via un autre fetch.
 
 ## Technologies utilisées
 
